@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irene Anyadufu | Professional Portfolio</title>
+    <style>
+        :root {
+            --bg-main: #0a0a0c;       /* Sleek Deep Black */
+            --bg-card: #121214;       /* Dark Charcoal for cards/form */
+            --accent-color: #3b82f6;  /* High-contrast Tech Blue */
+            --text-main: #f3f4f6;     /* Off-White */
+            --text-muted: #9ca3af;    /* Muted Grey */
+            --border-color: #262626;  /* Subtle divider lines */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .linkedin-nav {
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            color: var(--accent-color) !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .linkedin-nav:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-main) !important;
+        }
+
+        /* Base Section Layout */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 11rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 75vh;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-socials a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .footer-socials a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Irene<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Replace 'your-profile' with your actual LinkedIn username slug -->
+                <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" class="linkedin-nav">LinkedIn</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <h1>Hi, I'm <span>Irene Anyadufu</span>.</h1>
+        <p>A multi-faceted professional bridging the gap between operational efficiency, technical support, and digital growth. Let's build something efficient together.</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="max-width: 800px; font-size: 1.1rem; color: var(--text-muted);">
+            With a unique background combining a B.Sc. in Mass Communication, extensive experience in educational leadership, and specialized certifications in IT Support and Social Media Marketing, I thrive in fast-paced environments. I excel at simplifying technical hitches, organizing complex workflows, and helping brands scale their digital footprints.
+        </p>
+    </section>
+
+    <section id="services">
+        <h2>Core Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Virtual Assistance</h3>
+                <p>High-level administrative support, calendar management, email communication, and workflow optimization to keep daily business operations running seamlessly.</p>
+            </div>
+            <div class="service-card">
+                <h3>IT Support Engineering</h3>
+                <p>Troubleshooting technical challenges, managing system configurations, and providing clear technical guidance to optimize performance and security.</p>
+            </div>
+            <div class="service-card">
+                <h3>Social Media Marketing</h3>
+                <p>Crafting strategic content plans, managing high-engagement campaigns, and utilizing modern marketing tools to build up dynamic online communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <!-- Formspree endpoint can be added to action="" to make it fully functional -->
+            <form action="#" method="POST"> 
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="anyadufuirenechidera@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Irene Anyadufu. All rights reserved.</p>
+        <div class="footer-socials">
+            <!-- Replace 'your-profile' with your actual LinkedIn username slug -->
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Connect on LinkedIn &rarr;</a>
+        </div>
+    </footer>
+
+</body>
+</html>
